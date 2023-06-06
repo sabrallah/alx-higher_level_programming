@@ -4,7 +4,7 @@ def print_numbers():
         if i < 99:
             print("{:02d}, ".format(i), end="")
         else:
-            print("{:02d}".format(i))
+            print("{:02d}".format(99))
 
 if __name__ == "__main__":
     print_numbers()
