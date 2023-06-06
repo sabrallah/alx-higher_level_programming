@@ -1,2 +1,5 @@
 #!/usr/bin/python3
-print(''.join(chr(i % 2 * 32 + i) for i in range(90, 64, -1)), end='')
+
+for i in range(122, 96, -1):
+    print(chr(i), end='')
+    print(chr(i - 33), end='')
