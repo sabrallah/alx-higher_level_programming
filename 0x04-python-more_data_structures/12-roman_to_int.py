@@ -6,7 +6,8 @@ def roman_to_int(roman_string):
         # return 0
         return 0
     # create a dictionary to store the values of each roman numeral
-    roman_values = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    roman_values =\
+        {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     # initialize a variable to store the result
     result = 0
     # loop through the characters of the roman_string from left to right
