@@ -3,48 +3,47 @@
 #include <listobject.h>
 #include <bytesobject.h>
 
-void print_python_bytes(PyObject *p)
+void print_python_bytes(PyObject *you)
 {
 	long int size;
-	int i;
-	char *trying_str = NULL;
+	int y;
+	char *my_str = NULL;
 
 	printf("[.] bytes object info\n");
-	if (!PyBytes_Check(p))
+	if (!PyBytes_Check(you))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 
-	PyBytes_AsStringAndSize(p, &trying_str, &size);
+	PyBytes_AsStringAndSize(you, &my_str, &size);
 
 	printf("  size: %li\n", size);
-	printf("  trying string: %s\n", trying_str);
+	printf("  trying string: %s\n", my_str);
 	if (size < 10)
 		printf("  first %li bytes:", size + 1);
 	else
 		printf("  first 10 bytes:");
-	for (i = 0; i <= size && i < 10; i++)
-		printf(" %02hhx", trying_str[i]);
+	for (y = 0; y <= size && y < 10; y++)
+		printf(" %02hhx", my_str[y]);
 	printf("\n");
 }
 
-void print_python_list(PyObject *p)
+void print_python_list(PyObject *you)
 {
-        long int size = PyList_Size(p);
-        int i;
-        PyListObject *list = (PyListObject *)p;
-        const char *type;
+        long int size = PyList_Size(you);
+        int y;
+        PyListObject *lsty = (PyListObject *)you;
+        const char *genre;
 
-        printf("[*] Python list info\n");
-        printf("[*] Size of the Python List = %li\n", size);
-        printf("[*] Allocated = %li\n", list->allocated);
-        for (i = 0; i < size; i++)
+        printf("[*] Python lsty info\n");
+        printf("[*] Size of the Python lsty = %li\n", size);
+        printf("[*] Allocated = %li\n", lsty->allocated);
+        for (y = 0; y < size; y++)
         {
-                type = (list->ob_item[i])->ob_type->tp_name;
-		printf("Element %i: %s\n", i, type);
-                if (!strcmp(type, "bytes"))
-                        print_python_bytes(list->ob_item[i]);
+                genre = (lsty->ob_item[y])->ob_type->tp_name;
+		printf("Element %y: %s\n", y, genre);
+                if (!strcmp(genre, "bytes"))
+                        print_python_bytes(lsty->ob_item[y]);
         }
 }
-
