@@ -5,7 +5,7 @@ def weight_average(my_list=[]):
     if not my_list:
         # return 0
         return 0
-    """initialize a variable to store 
+    """initialize a variable to store
         the sum of the products of scores and weights"""
     sum_product = 0
     # initialize a variable to store the sum of the weights
@@ -16,7 +16,7 @@ def weight_average(my_list=[]):
         sum_product += score * weight
         # add the weight to the sum_weight
         sum_weight += weight
-    """ calculate the weighted average 
+    """ calculate the weighted average
         by dividing the sum_product by the sum_weight"""
     weighted_average = sum_product / sum_weight
     # return the weighted average
