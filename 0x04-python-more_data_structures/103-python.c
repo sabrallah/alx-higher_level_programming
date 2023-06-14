@@ -5,9 +5,9 @@
 
 void print_python_bytes(PyObject *p)
 {
-	long int vol;
+	long int size;
 	int y;
-	char *str = NULL;
+	char *trying_str = NULL;
 
 	printf("[.] bytes object info\n");
 	if (!PyBytes_Check(p))
@@ -16,30 +16,30 @@ void print_python_bytes(PyObject *p)
 		return;
 	}
 
-	PyBytes_AsStringAndSize(p, &str, &vol);
+	PyBytes_AsStringAndSize(p, &trying_str, &size);
 
-	printf("  vol: %li\n", vol);
-	printf("  trying string: %s\n", str);
-	if (vol < 10)
-		printf("  first %li bytes:", vol + 1);
+	printf("  size: %li\n", size);
+	printf("  trying string: %s\n", trying_str);
+	if (size < 10)
+		printf("  first %li bytes:", size + 1);
 	else
 		printf("  first 10 bytes:");
-	for (y = 0; y <= vol && y < 10; y++)
-		printf(" %02hhx", str[y]);
+	for (y = 0; y <= size && y < 10; y++)
+		printf(" %02hhx", trying_str[y]);
 	printf("\n");
 }
 
 void print_python_list(PyObject *p)
 {
-        long int vol = PyList_Size(p);
+        long int size = PyList_Size(p);
         int y;
         PyListObject *list = (PyListObject *)p;
         const char *type;
 
         printf("[*] Python list info\n");
-        printf("[*] vol of the Python List = %li\n", vol);
+        printf("[*] Size of the Python List = %li\n", size);
         printf("[*] Allocated = %li\n", list->allocated);
-        for (y = 0; y < vol; y++)
+        for (y = 0; y < size; y++)
         {
                 type = (list->ob_item[y])->ob_type->tp_name;
 		printf("Element %y: %s\n", y, type);
@@ -47,3 +47,4 @@ void print_python_list(PyObject *p)
                         print_python_bytes(list->ob_item[y]);
         }
 }
+
