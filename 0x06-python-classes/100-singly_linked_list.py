@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Node class represents a node of a singly linked list."""
+"""Node class represents a node of a singly linked list"""
 
 
 class Node:
@@ -10,11 +10,11 @@ class Node:
     def __init__(self, data, next_node=None):
         """
         Initializes a new Node object with the given data and next_node.
-        
+
         Args:
             data (int): The data value of the node.
-            next_node (Node, optional): The next node in the linked list. Defaults to None.
-        
+            next_node (Node, optional): The next node in the linked list.
+
         Raises:
             TypeError: If data is not an integer.
             TypeError: If next_node is not None or a Node object.
@@ -36,10 +36,10 @@ class Node:
     def data(self, value):
         """
         Sets the data value of the node.
-        
+
         Args:
             value (int): The new data value of the node.
-        
+
         Raises:
             TypeError: If value is not an integer.
         """
@@ -61,10 +61,10 @@ class Node:
     def next_node(self, value):
         """
         Sets the next node in the linked list.
-        
+
         Args:
             value (Node): The new next node in the linked list.
-        
+
         Raises:
             TypeError: If value is not None or a Node object.
         """
@@ -86,8 +86,8 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         """
-        Inserts a new Node into the correct sorted position in the list (increasing order).
-        
+        Inserts a new Node into the correct sorted position in the list.
+
         Args:
             value (int): The value to be inserted into the linked list.
         """
@@ -108,7 +108,7 @@ class SinglyLinkedList:
     def __str__(self):
         """
         Returns a string representation of the linked list.
-        
+
         Returns:
             str: The string representation of the linked list.
         """
