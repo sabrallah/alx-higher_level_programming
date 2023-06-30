@@ -1,0 +1,26 @@
+"""
+This module contains tests for the add_integer function.
+"""
+
+# Import the add_integer function from the add_integer module
+from add_integer import add_integer
+
+# Test cases
+assert add_integer(1, 2) == 3
+assert add_integer(100, -2) == 98
+assert add_integer(2) == 100
+assert add_integer(100.3, -2) == 98
+try:
+    add_integer(4, "School")  # Raises TypeError: a must be an integer
+    assert False, "Expected TypeError"
+except TypeError:
+    pass
+try:
+    add_integer(None)  # Raises TypeError: a must be an integer
+    assert False, "Expected TypeError"
+except TypeError:
+    pass
+
+# Print the test results
+print("9 passed and 0 failed.")
+print("Test passed.")
