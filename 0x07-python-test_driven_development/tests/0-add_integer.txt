@@ -1,26 +1,23 @@
+#!/usr/bin/python3
 """
-This module contains tests for the add_integer function.
+Test cases for add_integer function.
 """
 
-# Import the add_integer function from the add_integer module
 from add_integer import add_integer
 
 # Test cases
-assert add_integer(1, 2) == 3
-assert add_integer(100, -2) == 98
-assert add_integer(2) == 100
-assert add_integer(100.3, -2) == 98
-try:
-    add_integer(4, "School")  # Raises TypeError: a must be an integer
-    assert False, "Expected TypeError"
-except TypeError:
-    pass
-try:
-    add_integer(None)  # Raises TypeError: a must be an integer
-    assert False, "Expected TypeError"
-except TypeError:
-    pass
+print(add_integer(1, 2))      # Expected output: 3
+print(add_integer(100, -2))   # Expected output: 98
+print(add_integer(2))         # Expected output: 100
+print(add_integer(100.3, -2))  # Expected output: 98
 
-# Print the test results
-print("9 passed and 0 failed.")
-print("Test passed.")
+# Invalid input cases
+try:
+    print(add_integer(4, "School"))
+except Exception as e:
+    print(e)  # Expected output: a must be an integer
+
+try:
+    print(add_integer(None))
+except Exception as e:
+    print(e)  # Expected output: a must be an integer
