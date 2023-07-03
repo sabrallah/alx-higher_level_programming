@@ -23,7 +23,7 @@ def is_safe(board, row, col, N):
     return True
 
 
-def solve_nqueens_util(board, col, N):
+def solve_nqueens_util(board, col, N, solutions):
     """Solves the N-queens problem using backtracking."""
     if col == N:
         solution = []
@@ -31,20 +31,22 @@ def solve_nqueens_util(board, col, N):
             for j in range(N):
                 if board[i][j] == 1:
                     solution.append([i, j])
-        print(solution)
+        solutions.append(solution)
         return
 
     for i in range(N):
         if is_safe(board, i, col, N):
             board[i][col] = 1
-            solve_nqueens_util(board, col + 1, N)
+            solve_nqueens_util(board, col + 1, N, solutions)
             board[i][col] = 0
 
 
 def solve_nqueens(N):
     """Solves the N-queens problem."""
     board = [[0 for _ in range(N)] for _ in range(N)]
-    solve_nqueens_util(board, 0, N)
+    solutions = []
+    solve_nqueens_util(board, 0, N, solutions)
+    return solutions
 
 
 if __name__ == "__main__":
@@ -62,4 +64,6 @@ if __name__ == "__main__":
         print("N must be at least 4")
         sys.exit(1)
 
-    solve_nqueens(N)
+    solutions = solve_nqueens(N)
+    for solution in solutions:
+        print(solution)
