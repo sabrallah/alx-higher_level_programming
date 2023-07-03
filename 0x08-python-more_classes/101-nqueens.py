@@ -46,7 +46,7 @@ def solve_nqueens(N):
     board = [[0 for _ in range(N)] for _ in range(N)]
     solutions = []
     solve_nqueens_util(board, 0, N, solutions)
-    return solutions
+    return sorted(solutions, key=lambda x: x[0][1])
 
 
 if __name__ == "__main__":
