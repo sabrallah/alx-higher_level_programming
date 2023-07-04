@@ -3,6 +3,7 @@
 This module contains a function to create a copy of a list.
 """
 
+
 def copy_list(l):
     """
     Create a copy of a list.
