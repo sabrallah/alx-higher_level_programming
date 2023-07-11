@@ -1,4 +1,3 @@
-i want like this code : 
 #!/usr/bin/python3
 """
 Module append after method.
