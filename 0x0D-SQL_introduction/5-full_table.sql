@@ -1,6 +1,6 @@
 -- Print full description of first_table
 
-USE DATABASE_NAME;
+USE hbtn_0c_0;
 
 SELECT 
   TABLE_NAME AS `Table`,
