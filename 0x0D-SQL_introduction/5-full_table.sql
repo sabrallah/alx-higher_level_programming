@@ -1,7 +1,4 @@
--- Print full description of first_table
+-- Print full description of first_table 
 USE hbtn_0c_0;
 
-SELECT TABLE_NAME, COLUMN_NAME, COLUMN_TYPE, IS_NULLABLE, COLUMN_KEY, COLUMN_DEFAULT 
-FROM INFORMATION_SCHEMA.COLUMNS
-WHERE TABLE_SCHEMA = 'hbtn_0c_0' AND TABLE_NAME = 'first_table'
-ORDER BY ORDINAL_POSITION;
+SHOW CREATE TABLE first_table;
