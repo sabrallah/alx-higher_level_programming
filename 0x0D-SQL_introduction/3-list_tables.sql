@@ -1,4 +1,3 @@
--- Lists all the tables of a database in the MySQL server
-
+-- List all tables in a database
 USE hbtn_0c_0;
 SHOW TABLES;
