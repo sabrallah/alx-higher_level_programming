@@ -4,3 +4,4 @@ FROM temperatures
 WHERE MONTH(date) IN (7, 8)  
 GROUP BY city, month
 ORDER BY month, avg_temp DESC;
+LIMIT 3;
