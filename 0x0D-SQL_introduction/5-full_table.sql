@@ -1,4 +1,5 @@
 -- Print full description of first_table
+
 USE DATABASE_NAME;
 
 SELECT 
