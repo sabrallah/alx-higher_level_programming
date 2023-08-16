@@ -1,6 +1,5 @@
 -- Lists all shows and their ratings from the database hbtn_0d_tvshows
 -- Uses an INNER JOIN to match tv_shows and tv_show_ratings
--- Orders results alphabetically by show title
 
 SELECT 
    tv_shows.title,
