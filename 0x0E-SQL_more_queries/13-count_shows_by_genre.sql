@@ -1,7 +1,7 @@
--- This script lists all genres from hbtn_0d_tvshows and
--- displays the number of shows linked to each.
+-- ce script affiche tous les genres depuis hbtn_0d_tvshows
+-- afficher le nombre de donner linker lun a lautre.
 
--- Displaying the data
+-- afficherles donnees
 SELECT tv_genres.name AS genre, COUNT(tv_genres.name) AS number_of_shows
 FROM tv_genres
 JOIN tv_show_genres
