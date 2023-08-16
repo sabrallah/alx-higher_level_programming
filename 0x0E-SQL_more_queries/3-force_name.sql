@@ -1,18 +1,19 @@
--- Creates the table force_name on database hbtn_0d_2
--- with specific requirements for id, name fields
-CREATE TABLE IF NOT EXISTS `hbtn_0d_2`.`force_name` (
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(256) NOT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB; 
+-- This script is used to force a specific name for a table in MySQL
 
--- Inserts a new row with null value for name (should fail)
-INSERT INTO `hbtn_0d_2`.`force_name` (`id`, `name`) VALUES (89, NULL);
+-- Drop the existing table if it exists
+DROP TABLE IF EXISTS `force_name`;
 
--- Inserts a new row with non-null value for name 
-INSERT INTO `hbtn_0d_2`.`force_name` (`id`, `name`) VALUES (91, 'Holberton School');
+-- Create the table with the desired name
+CREATE TABLE `force_name` (
+  `id` INT PRIMARY KEY,
+  `name` VARCHAR(50) NOT NULL
+);
 
--- Prints the name column from force_name table 
-SELECT `name` FROM `hbtn_0d_2`.`force_name` WHERE `id` = 89;
+-- Insert some sample data into the table
+INSERT INTO `force_name` (`id`, `name`)
+VALUES (1, 'John'),
+       (2, 'Jane'),
+       (3, 'Alice');
 
-SELECT `name` FROM `hbtn_0d_2`.`force_name` WHERE `id` = 91;
+-- Query the data from the table
+SELECT * FROM `force_name`;
