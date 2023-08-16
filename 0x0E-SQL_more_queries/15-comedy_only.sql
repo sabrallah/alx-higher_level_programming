@@ -1,6 +1,6 @@
--- List all Comedy shows in 'hbtn_0d_tvshows'
--- 'tv_genres' table contains only one record where name = Comedy
--- Results must be sorted in ascending order by the show title
+-- List Comedy to shows hbtn_0d_tvshows'
+-- table contains one record name = Comedy
+-- Results must sorted in ascending order by the show title
 -- You can only use one SELECT statement
 SELECT tv_shows.title
 FROM tv_shows
