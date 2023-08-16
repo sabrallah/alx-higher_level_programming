@@ -1,8 +1,19 @@
--- Grant all privileges to a new user named 'myuser' on the 'mydatabase' database
-GRANT ALL PRIVILEGES ON mydatabase.* TO 'myuser'@'localhost';
+-- 0-privileges.sql
 
--- Grant only SELECT privileges to a new user named 'readonly' on the 'mydatabase' database
-GRANT SELECT ON mydatabase.* TO 'readonly'@'localhost';
+-- Create user user_0d_1 if not exists
+CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost';
 
--- Grant only INSERT privileges to a new user named 'insertuser' on the 'mytable' table
-GRANT INSERT ON mydatabase.mytable TO 'insertuser'@'localhost';
+-- Grant all privileges to user_0d_1 on all databases and tables
+GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost';
+
+-- Flush privileges to apply changes
+FLUSH PRIVILEGES;
+
+-- Create user user_0d_2 if not exists
+CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost';
+
+-- Grant all privileges to user_0d_2 on all databases and tables
+GRANT ALL PRIVILEGES ON *.* TO 'user_0d_2'@'localhost';
+
+-- Flush privileges to apply changes
+FLUSH PRIVILEGES;
