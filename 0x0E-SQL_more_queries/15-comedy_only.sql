@@ -1,15 +1,10 @@
--- Import the database dump from hbtn_0d_tvshows to your MySQL server: download (same as 14-my_genres.sql)
-
--- Write a script that lists all Comedy shows in the database hbtn_0d_tvshows.
-
--- The tv_genres table contains only one record where name = Comedy (but the id can be different)
--- Each record should display: tv_shows.title
+-- List all Comedy shows in 'hbtn_0d_tvshows'
+-- 'tv_genres' table contains only one record where name = Comedy
 -- Results must be sorted in ascending order by the show title
--- You can use only one SELECT statement
--- The database name will be passed as an argument of the mysql command
-
-SELECT tv_shows.title FROM tv_shows
-JOIN tv_show_genres ON tv_shows.id = tv_show_genres.tv_show_id
-JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
-WHERE tv_genres.name = 'Comedy'
-ORDER BY tv_shows.title;
+-- You can only use one SELECT statement
+SELECT tv_shows.title
+FROM tv_shows
+INNER JOIN tv_show_genres m ON tv_shows.id = m.show_id
+INNER JOIN tv_genres g ON m.genre_id = g.id
+WHERE g.name = 'Comedy'
+ORDER BY tv_shows.title ASC;
