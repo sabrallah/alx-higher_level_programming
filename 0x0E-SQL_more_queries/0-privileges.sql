@@ -1,5 +1,8 @@
--- Creates user_0d_1 
-CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd';
+-- Grant all privileges to a new user named 'myuser' on the 'mydatabase' database
+GRANT ALL PRIVILEGES ON mydatabase.* TO 'myuser'@'localhost';
 
--- Grants SELECT privilege to user_0d_1 on database hbtn_0d_tvshows
-GRANT SELECT ON hbtn_0d_tvshows.* TO 'user_0d_1'@'localhost';
+-- Grant only SELECT privileges to a new user named 'readonly' on the 'mydatabase' database
+GRANT SELECT ON mydatabase.* TO 'readonly'@'localhost';
+
+-- Grant only INSERT privileges to a new user named 'insertuser' on the 'mytable' table
+GRANT INSERT ON mydatabase.mytable TO 'insertuser'@'localhost';
