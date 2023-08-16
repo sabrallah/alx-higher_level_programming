@@ -1,19 +1,5 @@
--- 0-privileges.sql
+-- creates the user user_0d_1 with password user_0d_1_pwd 
+CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost' IDENTIFIED BY 'user_0d_1_pwd'; 
 
--- Create user user_0d_1 if not exists
-CREATE USER IF NOT EXISTS 'user_0d_1'@'localhost';
-
--- Grant all privileges to user_0d_1 on all databases and tables
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_1'@'localhost';
-
--- Flush privileges to apply changes
-FLUSH PRIVILEGES;
-
--- Create user user_0d_2 if not exists
-CREATE USER IF NOT EXISTS 'user_0d_2'@'localhost';
-
--- Grant all privileges to user_0d_2 on all databases and tables
-GRANT ALL PRIVILEGES ON *.* TO 'user_0d_2'@'localhost';
-
--- Flush privileges to apply changes
-FLUSH PRIVILEGES;
+-- grants SELECT privilege to user_0d_1 on database hbtn_0d_tvshows
+GRANT SELECT ON `hbtn_0d_tvshows`.* TO 'user_0d_1'@'localhost';
