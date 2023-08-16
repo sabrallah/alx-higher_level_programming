@@ -1,4 +1,5 @@
 -- Lists all shows without the genre Comedy
+
 -- Lists all shows without the genre Comedy
 SELECT tv_shows.title 
 FROM tv_shows 
