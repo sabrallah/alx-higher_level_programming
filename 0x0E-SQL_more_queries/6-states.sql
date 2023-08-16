@@ -1,23 +1,11 @@
--- Créer bd 'usa_data'  
+-- Create database hbtn_0d_usa
+CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
 
--- Si bd existe déjà, script ne doit pas échouer
-
-CREATE DATABASE IF NOT EXISTS usa_data;
-
--- Créer table 'etats' dans bd 'usa_data'  
-
--- id INT unique auto-généré non nul et clé primaire  
-
--- nom VARCHAR(256) non nul
-
--- Si table existe déjà, script ne doit pas échouer
-
-CREATE TABLE IF NOT EXISTS usa_data.etats (
-
-  id INT UNIQUE AUTO_INCREMENT NOT NULL,
-  
-  nom VARCHAR(256) NOT NULL,
-  
-  PRIMARY KEY (id)
-  
+-- Create table states
+-- id INT unique, auto generated, can't be null and is a primary key
+-- name VARCHAR(256) can't be null
+-- If table exists, script should not fail
+CREATE TABLE IF NOT EXISTS hbtn_0d_usa.states (
+    id INT UNIQUE NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(256) NOT NULL
 );
