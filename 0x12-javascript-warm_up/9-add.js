@@ -1,11 +1,8 @@
 #!/usr/bin/node
+// this the code that sum two number.
 
 function add(a, b) {
-  return Number(a) + Number(b);
+  return a + b;
 }
 
-if (process.argv.length >= 4) {
-  console.log(add(process.argv[2], process.argv[3]));
-} else {
-  console.log('NaN');
-}
+console.log(add(Number(process.argv[2]), Number(process.argv[3])));
