@@ -3,10 +3,10 @@ function factorial (y) {
   if (y < 0) {
     return (-1);
   }
-  if (y === 0 || isNaN(n)) {
+  if (y === 0 || isNaN(y)) {
     return (1);
   }
-  return (y * factorial(n - 1));
+  return (y * factorial(y - 1));
 }
 
 console.log(factorial(Number(process.argv[2])));
