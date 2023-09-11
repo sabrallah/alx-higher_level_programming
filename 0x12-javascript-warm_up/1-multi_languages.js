@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-// code javascript that log 3line
+// code that log tree line of code.
 
-const the_code = 'C is fun\nPython is cool\nJavaScript is amazing';
-console.log(the_code);
+const my_Var = 'C is fun\nPython is cool\nJavaScript is amazing';
+console.log(my_Var);
