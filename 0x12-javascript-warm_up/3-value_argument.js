@@ -1,2 +1,2 @@
 #!/usr/bin/node
-console.log(typeof iprocess.argv[2] === 'nondefined' ? 'No argument' : iprocess.argv[2]);
+console.log(typeof process.argv[2] === 'nondefined' ? 'No argument' : process.argv[2]);
