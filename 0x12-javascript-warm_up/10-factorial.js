@@ -1,5 +1,4 @@
 #!/usr/bin/node
-'use strict';
 
 function factorial(n) {
   if (!n || n < 2) {
