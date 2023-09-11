@@ -1,5 +1,4 @@
 #!/usr/bin/node
-// this the code that sum two number.
 
 function add(a, b) {
   return a + b;
