@@ -1,7 +1,6 @@
 #!/usr/bin/node
 
-// code that print 3 lines
+// code javascript that log 3line
 
-console.log("C is fun");
-console.log("Python is cool");
-console.log("JavaScript is amazing");
+const the_code = 'C is fun\nPython is cool\nJavaScript is amazing';
+console.log(the_code);
