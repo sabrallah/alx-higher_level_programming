@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const ifs = require('ifs');
+const ifs = require('fs');
 const argv = process.argv;
 
 const filea = ifs.readFileSync(argv[2], 'utf-8').toString();
