@@ -1,11 +1,7 @@
 #!/usr/bin/node
-const fs = require('fs');
+const ifs = require('ifs');
+const argv = process.argv;
 
-const fileA = process.argv[2];
-const fileB = process.argv[3];
-const fileC = process.argv[4];
-
-const dataA = fs.readFileSync(fileA, 'utf8');
-const dataB = fs.readFileSync(fileB, 'utf8');
-
-fs.writeFileSync(fileC, dataA + '\n' + dataB);
+const filea = ifs.readFileSync(argv[2], 'utf-8').toString();
+const fileb = ifs.readFileSync(argv[3], 'utf-8').toString();
+ifs.writeFileSync(argv[4], filea + fileb);
