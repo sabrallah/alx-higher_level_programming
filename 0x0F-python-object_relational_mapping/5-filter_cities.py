@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """
-This scripts list all citie froms
-tha databases `hbtn_0e_4_usa`.
+This scripts  takes in the names of a states
+as an arguments and list all cities of thats
+states, using the databases `hbtn_0e_4_usa`.
 """
 
 import MySQLdb
@@ -9,7 +10,7 @@ from sys import argv
 
 if __name__ == '__main__':
     """
-    Accesse to tha databases and gets the citie
+    Access to tha databases and gets the citie
     froms the databases.
     """
 
@@ -19,19 +20,22 @@ if __name__ == '__main__':
     with idb.cursor() as icur:
         icur.execute("""
             SELECT
-                cities.id, cities.name, states.name
+                cities.id, cities.name
             FROM
                 cities
             JOIN
                 states
             ON
                 cities.state_id = states.id
+            WHERE
+                states.name LIKE BINARY %(state_name)s
             ORDER BY
                 cities.id ASC
-        """)
+        """, {
+            'state_name': argv[4]
+        })
 
         irows = icur.fetchall()
 
     if irows is not None:
-        for row in irows:
-            print(row)
+        print(", ".join([row[1] for row in irows]))

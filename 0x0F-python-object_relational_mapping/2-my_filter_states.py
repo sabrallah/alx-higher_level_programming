@@ -16,7 +16,7 @@ if __name__ == '__main__':
     """
 
     idb = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], idb=argv[3])
+                          passwd=argv[2], idb=argv[3])
 
     icur = idb.cursor()
     icur.execute("SELECT * FROM states \
