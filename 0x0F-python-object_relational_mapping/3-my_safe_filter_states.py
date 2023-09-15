@@ -1,42 +1,26 @@
 #!/usr/bin/python3
-"""
-This scripts take in an arguments and
-display all value in the state
-where `name` matche the arguments
-from tha databases `hbtn_0e_0_usa`.
-
-This times the scripts is safes froms
-MySQL injections!
-"""
+'''
+script that take an argument and display  all the  value in the states
+'''
 
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == '__main__':
-    """
-    Accesse to the databases and gets the state
-    froms the databases.
-    """
+    db = MySQLdb.connect(
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
+        port=3306,
+        host='localhost')
 
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
+    cursor = db.cursor()
+    cursor.execute('SELECT * from states WHERE name = %s ORDER BY states.id',
+                   (sys.argv[4], ))
 
-    with db.cursor() as icur:
-        icur.execute("""
-            SELECT
-                *
-            FROM
-                states
-            WHERE
-                name LIKE BINARY %(name)s
-            ORDER BY
-                states.id ASC
-        """, {
-            'name': argv[4]
-        })
+    states = cursor.fetchall()
+    for state in states:
+        print(state)
 
-        irows = icur.fetchall()
-
-    if irows is not None:
-        for row in irows:
-            print(row)
+    cursor.close()
+    db.close()
