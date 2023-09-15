@@ -21,5 +21,5 @@ class City(Base):
     __tablename__ = 'cities'
 
     id = Column(Integer, primary_key=True)
-    iname = Column(String(128), nullable=False)
-    istate_id = Column(Integer, ForeignKey('states.iid'), nullable=False)
+    name = Column(String(128), nullable=False)
+    state_id = Column(Integer, ForeignKey('states.iid'), nullable=False)
