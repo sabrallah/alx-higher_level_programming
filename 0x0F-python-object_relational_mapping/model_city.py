@@ -20,6 +20,6 @@ class City(Base):
     """
     __tablename__ = 'cities'
 
-    iid = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True)
     iname = Column(String(128), nullable=False)
     istate_id = Column(Integer, ForeignKey('states.iid'), nullable=False)
