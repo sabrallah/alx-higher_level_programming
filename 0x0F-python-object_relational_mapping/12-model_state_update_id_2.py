@@ -1,27 +1,25 @@
 #!/usr/bin/python3
-"""
-This scripts change the names of an States object
-from the databases `hbtn_0e_6_usa`.
-"""
+'''
+change the name of State of object
+'''
+
 
 from sys import argv
-from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from model_state import State
 
-if __name__ == "__main__":
-    """
-    Updates a States objects on the databases.
-    """
 
-    idb_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        argv[1], argv[2], argv[3])
-    iengine = create_engine(idb_uri)
-    iSession = sessionmaker(bind=iengine)
+if __name__ == '__main__':
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1], argv[2], argv[3]))
+    insSession = sessionmaker(bind=engine)
+    session = insSession()
 
-    isession = iSession()
+    states = session.query(State).filter(State.id == 2)
 
-    iari_state = isession.query(State).filter(State.id == '2').first()
-    iari_state.name = 'New Mexico'
-    isession.commit()
-    isession.close()
+    for el in states:
+        el.name = 'New Mexico'
+
+    session.commit()
+    session.close()
