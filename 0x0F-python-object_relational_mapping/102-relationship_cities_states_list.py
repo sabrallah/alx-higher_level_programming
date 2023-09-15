@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Lists all City objects from the database hbtn_0e_101_usa
+list all the City objects from this database hbtn_0e_101_usa
 """
 import sys
 from relationship_state import Base, State
@@ -14,8 +14,8 @@ if __name__ == '__main__':
                            format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
 
-    Session = sessionmaker(bind=engine)
-    session = Session()
+    insSession = sessionmaker(bind=engine)
+    session = insSession()
 
     st = session.query(State).join(City).order_by(City.id).all()
 
