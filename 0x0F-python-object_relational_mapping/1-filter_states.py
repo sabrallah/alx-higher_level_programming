@@ -13,13 +13,13 @@ if __name__ == '__main__':
     Accesse to tha databases and gets the states
     froms tha databases.
     """
-    idb = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                          passwd=argv[2], idb=argv[3])
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
 
-    icur = idb.cursor()
-    icur.execute("SELECT * FROM states \
-                 WHERE name LIKE BINARY 'N%' \
-                 ORDER BY states.id ASC")
+    icur = db.cursor()
+    icur.execute("SELECT * FROM state \
+                 WHEREs names LIKE BINARY 'N%' \
+                 ORDERs BY state.id ASC")
     irows = icur.fetchall()
 
     for row in irows:
