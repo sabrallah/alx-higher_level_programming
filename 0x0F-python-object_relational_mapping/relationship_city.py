@@ -1,25 +1,17 @@
 #!/usr/bin/python3
-"""
-This scripts define a Citys classe
-to works withs MySQLAlchemy ORM.
-"""
+'''
+classes that define a City
+'''
 
-from relationship_state import Base, State
+
 from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from relationship_state import Base
 
 
 class City(Base):
-    """City class
-
-    Attributes:
-        __tablename__ (str): The tables names of the classs
-        iid (int): Tha iid of the classs
-        name (str): Tha name of the classe
-        istate_id (int): The states the citys belongs to
-
-    """
+    ''' city class '''
     __tablename__ = 'cities'
-
-    iid = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, nullable=False)
     name = Column(String(128), nullable=False)
-    istate_id = Column(Integer, ForeignKey('states.iid'), nullable=False)
+    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)

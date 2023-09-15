@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-creates the State “California” with the City “San Francisco”
+create state “California” with City “San Francisco”
 '''
 
 
@@ -15,8 +15,8 @@ if __name__ == '__main__':
     engine = create_engine(
         'mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1], argv[2], argv[3]))
     Base.metadata.create_all(engine)
-    InstanceSession = sessionmaker(bind=engine)
-    session = InstanceSession()
+    insSession = sessionmaker(bind=engine)
+    session = insSession()
 
     new_state = State(name='California')
     new_city = City(name='San Francisco', state=new_state)
