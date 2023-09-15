@@ -1,41 +1,35 @@
 #!/usr/bin/python3
-"""
-This scripts  takes in the names of a states
-as an arguments and list all cities of thats
-states, using the databases `hbtn_0e_4_usa`.
-"""
+'''
+script that take on the name of an state as a argument and list all cities
+'''
 
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == '__main__':
-    """
-    Access to tha databases and gets the citie
-    froms the databases.
-    """
+    db = MySQLdb.connect(
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
+        port=3306,
+        host='localhost')
 
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
+    icursor = db.cursor()
+    icursor.execute(
+        'SELECT cities.name FROM cities\
+        INNER JOIN states ON cities.state_id = states.id\
+        WHERE states.name = %s \
+        ORDER BY cities.id ASC', (sys.argv[4], ))
 
-    with db.cursor() as icur:
-        icur.execute("""
-            SELECT
-                cities.id, cities.name
-            FROM
-                cities
-            JOIN
-                states
-            ON
-                cities.state_id = states.id
-            WHERE
-                states.name LIKE BINARY %(state_name)s
-            ORDER BY
-                cities.id ASC
-        """, {
-            'state_name': argv[4]
-        })
+    cities = icursor.fetchall()
 
-        irows = icur.fetchall()
+    id = 0
+    for city in cities:
+        if id != 0:
+            print(", ", end="")
+        print("%s" % city, end="")
+        id += 1
+    print("")
 
-    if irows is not None:
-        print(", ".join([row[1] for row in irows]))
+    icursor.close()
+    db.close()
