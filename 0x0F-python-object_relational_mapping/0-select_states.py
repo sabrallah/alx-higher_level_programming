@@ -12,10 +12,10 @@ if __name__ == '__main__':
     Accesse to tha databases and gets tha state
     from the database.
     """
-    idb = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                          passwd=argv[2], idb=argv[3])
+    id = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                          passwd=argv[2], id=argv[3])
 
-    icur = idb.cursor()
+    icur = db.cursor()
     icur.execute("SELECT * FROM states")
     irows = icur.fetchall()
 
