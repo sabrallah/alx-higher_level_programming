@@ -15,9 +15,9 @@ if __name__ == '__main__':
     id = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
                           passwd=argv[2], id=argv[3])
 
-    icur = db.cursor()
-    icur.execute("SELECT * FROM states")
-    irows = icur.fetchall()
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states")
+    rows = cur.fetchall()
 
-    for row in irows:
+    for row in rows:
         print(row)
