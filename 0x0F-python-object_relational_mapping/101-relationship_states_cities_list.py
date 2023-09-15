@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-lister all States objects and corresponding City object contain in database
+lists all State objects and corresponding City objects contained in a database
 """
 
 import sqlalchemy
@@ -12,15 +12,15 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    ieng = create_engine("mysql+mysqldb://{}:{}@localhost/{}".format(argv[1],
+    eng = create_engine("mysql+mysqldb://{}:{}@localhost/{}".format(argv[1],
                                                                     argv[2],
                                                                     argv[3]))
-    Base.metadata.create_all(ieng)
-    Session = sessionmaker(bind=ieng)
+    Base.metadata.create_all(eng)
+    Session = sessionmaker(bind=eng)
     session = Session()
     rows = session.query(State).all()
-    for istate in rows:
-        print("{}: {}".format(istate.id, istate.name))
-        for icity in istate.cities:
-            print("    {}: {}".format(icity.id, icity.name))
+    for state in rows:
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))
     session.close()
