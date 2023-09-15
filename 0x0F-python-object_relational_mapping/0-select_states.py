@@ -1,31 +1,36 @@
 #!/usr/bin/python3
+"""
+Script qui liste tous les états de la base de données hbtn_0e_0_usa
+"""
 
-import MySQLdb
 import sys
+import MySQLdb
 
-def connect():
-    return MySQLdb.connect(
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
-        host='localhost', 
-        port=3306
-    )
+if name == 'main':
 
-def get_states():
-    conn = connect()
-    cursor = conn.cursor()
-    
-    cursor.execute('SELECT * FROM states ORDER BY id ASC;')
-    states = cursor.fetchall()
-    
-    conn.close()
-    return states
 
-def print_states(states):
-    for state in states:
-        print(state)
+# Connexion à la base de données
+connection = MySQLdb.connect(
+           user=sys.argv[1], 
+           password=sys.argv[2],
+           database=sys.argv[3],
+           port=3306,
+           host='localhost'
+)
 
-if __name__ == '__main__':
-    states = get_states()
-    print_states(states)
+# Récupération du curseur
+cursor = connection.cursor()
+
+# Requête de sélection
+cursor.execute('SELECT * FROM states ORDER BY id ASC;')
+
+# Récupération des données
+states = cursor.fetchall() 
+
+# Parcours et affichage des états
+for state in states:
+
+    print(state)
+
+# Fermeture de la connexion
+connection.close()
