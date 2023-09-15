@@ -47,7 +47,3 @@ def print_states(states):
 def close_resources(cursor, conn):
     cursor.close()
     conn.close()
-
-
-if __name__ == '__main__':
-    main()
