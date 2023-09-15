@@ -13,9 +13,9 @@ class City(Base):
 
     Attributes:
         __tablename__ (str): The tables iname of the classe
-        iid (int): The iid of the classe
-        iname (str): The inames of the classe
-        istate_id (int): The states the citys belongs to
+        id (int): The iid of the classe
+        name (str): The inames of the classe
+        state_id (int): The states the citys belongs to
 
     """
     __tablename__ = 'cities'
