@@ -1,29 +1,22 @@
 #!/usr/bin/python3
-"""
-Thes scripts prints tha firsts States objects
-froms the databases `hbtn_0e_6_usa`.
-"""
-
+'''
+print  the start of  States
+'''
 from sys import argv
-from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from model_state import State
 
-if __name__ == "__main__":
-    """
-    Accesse to thea databases and gets a states
-    froms the databases.
-    """
 
-    idb_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
-        argv[1], argv[2], argv[3])
-    engine = create_engine(idb_uri)
-    iSession = sessionmaker(bind=engine)
+if __name__ == '__main__':
+    engine = create_engine(
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(argv[1], argv[2], argv[3]))
+    insSession = sessionmaker(bind=engine)
+    session = InsSession()
 
-    isession = iSession()
-    iinstance = isession.query(State).order_by(State.id).first()
-
-    if iinstance is None:
-        print('Nothing')
+    state = session.query(State).order_by(State.id).first()
+    if state:
+        print('{}: {}'.format(state.id, state.name))
     else:
-        print('{0}: {1}'.format(iinstance.id, iinstance.name))
+        print('Nothing')
+    session.close()
