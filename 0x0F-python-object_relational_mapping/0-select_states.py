@@ -1,23 +1,31 @@
 #!/usr/bin/python3
-"""
-This scripts lists alls state froms the
-databases `hbtn_0e_0_usa`.
-"""
 
 import MySQLdb
-from sys import argv
+import sys
+
+def connect():
+    return MySQLdb.connect(
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
+        host='localhost', 
+        port=3306
+    )
+
+def get_states():
+    conn = connect()
+    cursor = conn.cursor()
+    
+    cursor.execute('SELECT * FROM states ORDER BY id ASC;')
+    states = cursor.fetchall()
+    
+    conn.close()
+    return states
+
+def print_states(states):
+    for state in states:
+        print(state)
 
 if __name__ == '__main__':
-    """
-    Access tos tha databases and gets the state
-    froms the database.
-    """
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
-
-    icur = db.cursor()
-    icur.execute("SELECT * FROM states")
-    irows = icur.fetchall()
-
-    for irow in irows:
-        print(irow)
+    states = get_states()
+    print_states(states)
