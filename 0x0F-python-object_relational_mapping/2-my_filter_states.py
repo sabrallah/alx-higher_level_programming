@@ -15,10 +15,10 @@ if __name__ == '__main__':
     from the databases.
     """
 
-    idb = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                          passwd=argv[2], idb=argv[3])
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
 
-    icur = idb.cursor()
+    icur = db.cursor()
     icur.execute("SELECT * FROM states \
                  WHERE name LIKE BINARY '{}' \
                  ORDER BY states.id ASC".format(argv[4]))
