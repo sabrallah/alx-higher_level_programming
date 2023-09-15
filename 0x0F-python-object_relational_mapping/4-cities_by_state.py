@@ -13,11 +13,11 @@ if __name__ == '__main__':
     froms the databases.
     """
 
-    idb = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                          passwd=argv[2], idb=argv[3])
+    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
+                         passwd=argv[2], db=argv[3])
 
-    with idb.cursor() as icur:
-        icur.execute("""
+    with db.cursor() as icur:
+         icur.execute("""
             SELECT
                 cities.id, cities.name, states.name
             FROM
