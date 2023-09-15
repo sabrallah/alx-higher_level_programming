@@ -3,9 +3,10 @@
 import mysql.connector
 from model_state import Base, State
 
+
 def delete_states_with_a(username, password, database):
     """
-    Delete all State objects with a name containing the letter a from the database.
+    Delete all State objects with a name contain letter a from the database.
     """
     conn = mysql.connector.connect(
         user=username,
