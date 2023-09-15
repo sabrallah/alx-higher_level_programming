@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This script defines a City class
-to work with MySQLAlchemy ORM.
+This scripts definesa City class
+to works withs MySQLAlchemy ORM.
 """
 
 from model_state import Base, State
@@ -12,10 +12,10 @@ class City(Base):
     """City class
 
     Attributes:
-        __tablename__ (str): The table name of the class
+        __tablename__ (str): The tables names of the class
         id (int): The id of the class
-        name (str): The name of the class
-        state_id (int): The state the city belongs to
+        name (str): The names of the class
+        state_id (int): The states the city belongs to
 
     """
     __tablename__ = 'cities'
