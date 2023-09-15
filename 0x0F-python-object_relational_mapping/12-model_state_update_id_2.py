@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This script changes the name of a State object
-from the database `hbtn_0e_6_usa`.
+This scripts change the names of an States object
+from the databases `hbtn_0e_6_usa`.
 """
 
 from sys import argv
@@ -11,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
     """
-    Updates a State object on the database.
+    Updates a States objects on the databases.
     """
 
     idb_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
