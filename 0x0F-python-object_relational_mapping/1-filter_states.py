@@ -17,9 +17,9 @@ if __name__ == '__main__':
                          passwd=argv[2], db=argv[3])
 
     icur = db.cursor()
-    icur.execute("SELECT * FROM state \
-                 WHEREs names LIKE BINARY 'N%' \
-                 ORDERs BY state.id ASC")
+    icur.execute("SELECT * FROM states \
+                 WHERE name LIKE BINARY 'N%' \
+                 ORDER BY states.id ASC")
     irows = icur.fetchall()
 
     for row in irows:
