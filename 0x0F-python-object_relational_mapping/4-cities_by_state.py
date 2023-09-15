@@ -1,37 +1,25 @@
 #!/usr/bin/python3
-"""
-This scripts list all citie froms
-tha databases `hbtn_0e_4_usa`.
-"""
+'''
+scripts that list  all the  cities from the a database
+'''
 
 import MySQLdb
-from sys import argv
+import sys
 
 if __name__ == '__main__':
-    """
-    Accesse to tha databases and gets the citie
-    froms the databases.
-    """
+    db = MySQLdb.connect(
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3],
+        port=3306,
+        host='localhost')
 
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
+    icursor = db.cursor()
+    icursor.execute(
+        'SELECT cities.id, cities.name, states.name FROM cities JOIN states ON\
+        cities.state_id = states.id;')
 
-    with db.cursor() as icur:
-        icur.execute("""
-            SELECT
-                cities.id, cities.name, states.name
-            FROM
-                cities
-            JOIN
-                states
-            ON
-                cities.state_id = states.id
-            ORDER BY
-                cities.id ASC
-        """)
+    states = icursor.fetchall()
 
-        irows = icur.fetchall()
-
-    if irows is not None:
-        for row in irows:
-            print(row)
+    for state in states:
+        print(state)
