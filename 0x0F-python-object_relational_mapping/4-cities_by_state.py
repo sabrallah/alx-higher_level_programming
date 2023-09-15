@@ -17,7 +17,7 @@ if __name__ == '__main__':
                          passwd=argv[2], db=argv[3])
 
     with db.cursor() as icur:
-         icur.execute("""
+        icur.execute("""
             SELECT
                 cities.id, cities.name, states.name
             FROM
