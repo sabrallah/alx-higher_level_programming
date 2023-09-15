@@ -1,6 +1,6 @@
-#!/usr/bi/python3
+#!/usr/bin/python3
 """
-Script listing states starting with N from 'hbtn_0e_0_usa' database
+Script listing states starting with N from database
 """
 
 import MySQLdb
@@ -8,42 +8,34 @@ import sys
 
 
 def main():
-    """Main function"""
 
-    connection = connect_to_db()
-    cursor = get_cursor(connection)
+    conn = connect_db()
+    cursor = conn.cursor()
 
-    # Query to select states starting with N
-    query = ("SELECT * FROM states "
-             "WHERE name LIKE 'N%'")
-
+    query = "SELECT * FROM states WHERE name LIKE 'N%'"
     execute_query(cursor, query)
-    fetched_states = fetch_states(cursor)
 
-    print_states(fetched_states)
+    states = fetch_all(cursor)
+    print_states(states)
 
-    close_resources(cursor, connection)
+    close_resources(cursor, conn)
 
 
-def connect_to_db():
-    """Connect to MySQL database"""
+def connect_db():
     return MySQLdb.connect(
         user=sys.argv[1],
         password=sys.argv[2],
         database=sys.argv[3],
         port=3306,
-        host='localhost')
-
-
-def get_cursor(connection):
-    return connection.cursor()
+        host='localhost'
+    )
 
 
 def execute_query(cursor, query):
     cursor.execute(query)
 
 
-def fetch_states(cursor):
+def fetch_all(cursor):
     return cursor.fetchall()
 
 
@@ -52,9 +44,9 @@ def print_states(states):
         print(state)
 
 
-def close_resources(cursor, connection):
+def close_resources(cursor, conn):
     cursor.close()
-    connection.close()
+    conn.close()
 
 
 if __name__ == '__main__':
