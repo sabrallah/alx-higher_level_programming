@@ -1,7 +1,3 @@
 #!/bin/bash
-
-STATUS=$(curl -s -o /dev/null -w "%{http_code}" "$1")
-
-if [ $STATUS -eq 200 ]; then
-  curl -s "$1"
-fi
+#This script sends a GET request to a URL and displays the body of the response
+curl -sL -X GET "$1" -w "\n%{http_code}" | sed -n '/200/{n;p;q}'
