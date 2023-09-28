@@ -1,3 +1,3 @@
 #!/bin/bash
-# displays body of 200 status code response propice
-curl -sL $1
+# This script takes in a URL, sends a GET request to the URL, and displays the body of the response
+curl -sL "$1"
