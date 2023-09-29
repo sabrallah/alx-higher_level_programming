@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 """
-This script sends a POST request to a given URL with an email as a parameter.
-It then displays the body of the response.
-
-Usage:
-    ./6-post_email.py <URL> <email>
+Sends a POST request to a URL with an email
+as a parameter and displays the response body.
 """
 
 import requests
@@ -21,5 +18,5 @@ if __name__ == "__main__":
     data = {'email': email}
     response = requests.post(url, data=data)
 
-    print("Your email is:", email)
+    print("Your email is: {}".format(email))
     print(response.text)
