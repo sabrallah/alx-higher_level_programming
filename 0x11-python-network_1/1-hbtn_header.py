@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Python script that takes in a URL, sends a request to the URL,
 and display value of X-Request-Id variable found in header of the response.
